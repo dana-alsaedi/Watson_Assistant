@@ -1,0 +1,641 @@
+{
+  "intents": [
+    {
+      "intent": "Connection",
+      "examples": [
+        {
+          "text": "Can I speak to a human please?"
+        },
+        {
+          "text": "Can I speak with somebody?"
+        },
+        {
+          "text": "Can you connect me with a real person?"
+        },
+        {
+          "text": "Contact Us"
+        },
+        {
+          "text": "I don't want to talk to a bot."
+        },
+        {
+          "text": "I don't want to talk to you"
+        },
+        {
+          "text": "Is there anyone there I can actually talk to for real?"
+        },
+        {
+          "text": "I want to speak to a person"
+        },
+        {
+          "text": "I would like to speak to someone"
+        },
+        {
+          "text": "Need help from human"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "goals",
+      "examples": [
+        {
+          "text": "goals"
+        },
+        {
+          "text": "what is the goal of this website"
+        },
+        {
+          "text": "what the is benefit of the website"
+        },
+        {
+          "text": "what the main ides of this web page"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "Goodbye",
+      "examples": [
+        {
+          "text": "bye"
+        },
+        {
+          "text": "Goodbye"
+        },
+        {
+          "text": "see ya"
+        },
+        {
+          "text": "so long"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "Greetings",
+      "examples": [
+        {
+          "text": "Hello"
+        },
+        {
+          "text": "Hey you"
+        },
+        {
+          "text": "hi"
+        },
+        {
+          "text": "Hi there"
+        },
+        {
+          "text": "You there"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "Location",
+      "examples": [
+        {
+          "text": "how do I find you"
+        },
+        {
+          "text": "how do i get to your place"
+        },
+        {
+          "text": "I need help with finding the company"
+        },
+        {
+          "text": "location please"
+        },
+        {
+          "text": "Looking for a location"
+        },
+        {
+          "text": "what is the address"
+        },
+        {
+          "text": "what's your location"
+        },
+        {
+          "text": "Where are you located"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "programming_languages",
+      "examples": [
+        {
+          "text": "Programming languages"
+        },
+        {
+          "text": "tell me about the languages that you used in programing this web page"
+        },
+        {
+          "text": "what did you used for programing the web page?"
+        },
+        {
+          "text": "what language did you use?"
+        },
+        {
+          "text": "what the languages did you used for programing the web page?"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "Robot_Arm",
+      "examples": [
+        {
+          "text": "Robot Arm"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "Robot_Base",
+      "examples": [
+        {
+          "text": "Robot Base"
+        }
+      ],
+      "description": ""
+    }
+  ],
+  "entities": [
+    {
+      "entity": "appreciation",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "Thank you",
+          "synonyms": [
+            "many thanks",
+            "thanks",
+            "thank you very much",
+            "thx"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "General_Greetings",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "Fine, thanks.",
+          "synonyms": [
+            "Doing fine",
+            "fine"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "good what about you",
+          "synonyms": [
+            "Fine, thanks. How are you?"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "i am good",
+          "synonyms": [
+            "Good",
+            "I’m good"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    }
+  ],
+  "metadata": {
+    "api_version": {
+      "major_version": "v2",
+      "minor_version": "2018-11-08"
+    }
+  },
+  "dialog_nodes": [
+    {
+      "type": "standard",
+      "title": "Anything else",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "I didn't understand. You can try rephrasing."
+              },
+              {
+                "text": "Can you reword your statement? I'm not understanding."
+              },
+              {
+                "text": "I didn't get your meaning."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "anything_else",
+      "dialog_node": "Anything else",
+      "previous_sibling": "node_5_1625195343670",
+      "disambiguation_opt_out": true
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_9_1625269127827",
+      "event_name": "focus",
+      "dialog_node": "handler_5_1625269127847",
+      "previous_sibling": "handler_9_1625269127847"
+    },
+    {
+      "type": "event_handler",
+      "parent": "slot_9_1625269127827",
+      "event_name": "input",
+      "dialog_node": "handler_9_1625269127847"
+    },
+    {
+      "type": "standard",
+      "metadata": {
+        "_customization": {
+          "mcr": true
+        }
+      },
+      "conditions": "#Greetings",
+      "digress_in": "does_not_return",
+      "dialog_node": "node_1_1625107631970",
+      "previous_sibling": "Welcome"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "You're welcome. Just let me know if you need anything else."
+              },
+              {
+                "text": "No problem. Just let me know if you need anything else."
+              },
+              {
+                "text": "My pleasure. Just let me know if you need anything else."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "random"
+          }
+        ]
+      },
+      "conditions": "@appreciation",
+      "digress_in": "does_not_return",
+      "dialog_node": "node_2_1625112401578",
+      "previous_sibling": "node_5_1625099855898"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "For frontend programming I used. HTML and CSS for the styling. \nFor backend, I need a programming language that runs on a server, so I chose PHP."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#programming_languages",
+      "dialog_node": "node_3_1625271832476",
+      "previous_sibling": "node_9_1625147935458"
+    },
+    {
+      "type": "standard",
+      "title": "Contact addresses:",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Contact addresses:\nSaudi Arabia - Makkah\n\n-<a href=\"https://goo.gl/maps/6QUwnfCS4WZUUQTM6\">Headquarter Office - Butha Qurais No.7h - Main street - Almudaa Building - Office </a> \n\n-<a href=\"https://goo.gl/maps/Wcx5pjXEzdJsqduY7\">Sales Branch - Misfalah - Alkenkariah Street - Afwaj Al-Tawba Hotel - Exhibition No.4  </a> \n\n-<a href=\"https://goo.gl/maps/jPuAjKmnmjTa2Xqv7\"> Reception Branch - Wadi Makkah - Company Building - Office No.6\n </a> "
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          },
+          {
+            "values": [],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#Location",
+      "dialog_node": "node_5_1625099855898",
+      "previous_sibling": "node_8_1625111560507"
+    },
+    {
+      "type": "standard",
+      "parent": "node_1_1625107631970",
+      "metadata": {
+        "_customization": {
+          "mcr": true
+        }
+      },
+      "conditions": "@General_Greetings",
+      "dialog_node": "node_5_1625108738308"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Good bye"
+              },
+              {
+                "text": "See ya"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "random"
+          }
+        ]
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "Welcome"
+      },
+      "conditions": "#Goodbye",
+      "digress_in": "does_not_return",
+      "dialog_node": "node_5_1625195343670",
+      "previous_sibling": "node_2_1625112401578"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "On this web page, we will control the angles of the motors and the range of the servo motor from 0 to 180. Also, the direction of the movement such as right-left and so on."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#goals",
+      "dialog_node": "node_8_1625111560507",
+      "previous_sibling": "node_3_1625271832476"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "You can always talk to a representative \nby writing us at <a href=\"mailto:info@example.com\">info@s-m.com.sa</a> or by calling us at 0580202718"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "random"
+          },
+          {
+            "values": [],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#Connection",
+      "dialog_node": "node_9_1625147935458",
+      "previous_sibling": "node_1_1625107631970"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "awesome"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_5_1625108738308",
+      "conditions": "@General_Greetings:(i am good)",
+      "dialog_node": "response_10_1625110638991",
+      "previous_sibling": "response_9_1625110598388"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Hi, how are you?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_1_1625107631970",
+      "conditions": "#Greetings",
+      "dialog_node": "response_4_1625108376534",
+      "previous_sibling": "node_5_1625108738308"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "text": {
+          "values": [],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "Welcome",
+      "disabled": true,
+      "conditions": "anything_else",
+      "dialog_node": "response_4_1625269117278",
+      "previous_sibling": "response_8_1625269116750"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "also good"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_5_1625108738308",
+      "conditions": "@General_Greetings:(good what about you)",
+      "dialog_node": "response_8_1625109850625"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Hi, I'm the Chatbot for the control panel of the robotic web page."
+              },
+              {
+                "text": ""
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          },
+          {
+            "values": [
+              {
+                "text": ""
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "Welcome",
+      "disabled": true,
+      "dialog_node": "response_8_1625269104137",
+      "previous_sibling": "slot_9_1625269127827"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "text": {
+          "values": [],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "Welcome",
+      "disabled": true,
+      "conditions": "$webhook_result_1",
+      "dialog_node": "response_8_1625269116750",
+      "previous_sibling": "response_8_1625269104137"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "awesome"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_5_1625108738308",
+      "conditions": "@General_Greetings:(Fine, thanks.)",
+      "dialog_node": "response_9_1625110598388",
+      "previous_sibling": "response_8_1625109850625"
+    },
+    {
+      "type": "slot",
+      "parent": "Welcome",
+      "dialog_node": "slot_9_1625269127827"
+    },
+    {
+      "type": "standard",
+      "title": "Welcome",
+      "output": {
+        "generic": [
+          {
+            "title": "Hi, I'm the Chatbot for the control panel of the robotic web page.",
+            "options": [
+              {
+                "label": "Goals ",
+                "value": {
+                  "input": {
+                    "text": "Goals "
+                  }
+                }
+              },
+              {
+                "label": "Programming languages",
+                "value": {
+                  "input": {
+                    "text": "Programming languages"
+                  }
+                }
+              },
+              {
+                "label": "Contact Us",
+                "value": {
+                  "input": {
+                    "text": "Contact Us"
+                  }
+                }
+              }
+            ],
+            "description": "You can ask me about",
+            "response_type": "option"
+          }
+        ]
+      },
+      "metadata": {
+        "_customization": {
+          "mcr": false
+        }
+      },
+      "conditions": "welcome",
+      "dialog_node": "Welcome"
+    }
+  ],
+  "counterexamples": [],
+  "system_settings": {
+    "off_topic": {
+      "enabled": true
+    },
+    "disambiguation": {
+      "prompt": "Did you mean:",
+      "enabled": true,
+      "randomize": true,
+      "max_suggestions": 5,
+      "suggestion_text_policy": "title",
+      "none_of_the_above_prompt": "None of the above"
+    },
+    "human_agent_assist": {
+      "prompt": "Did you mean:"
+    },
+    "intent_classification": {
+      "training_backend_version": "v2"
+    },
+    "spelling_auto_correct": true
+  },
+  "learning_opt_out": false,
+  "name": "Dana",
+  "language": "en",
+  "description": ""
+}
