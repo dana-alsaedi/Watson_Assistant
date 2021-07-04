@@ -19,6 +19,13 @@ If this is the first time you are accessing Watson Assistant features, please ac
 
 <img width="931" alt="p2" src="https://user-images.githubusercontent.com/85671599/124397191-30f0b600-dd17-11eb-9baf-c13a49f20506.png">
 
+* Dialog nodes
+
+<img width="411" alt="p3" src="https://user-images.githubusercontent.com/85671599/124399718-f5111d00-dd25-11eb-9a9d-d91dff494ade.png">
+
+
+<img width="408" alt="p4" src="https://user-images.githubusercontent.com/85671599/124399722-f93d3a80-dd25-11eb-8937-ec181e4eef7c.png">
+
 
 ***
 ### - Chatbot preview.
